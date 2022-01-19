@@ -1,0 +1,278 @@
+*{
+    box-sizing:border-box;
+}
+
+body{
+    width: 95vw;
+    height: 100vh;
+    background:linear-gradient(30deg,  #C6426E,#7c458a,#C6426E);
+    /* background: rgb(128, 120, 120); */
+    position: relative;
+    display: block;
+    justify-content: center;
+    margin: 2% 0% 3% 0%;
+}
+
+.wrapper{
+    position: relative;
+    left:1.5%;
+    display: grid;
+    grid-template-columns: 15vw 15vw 15vw 15vw;
+    /* gap: 40px 20px; */
+    gap:6vh 3vh;
+    justify-content: space-evenly;
+    align-items: center ;
+    width: 100%;
+    height: 100%; 
+    overflow: hidden;
+} 
+
+.card{
+    position: relative; 
+    border: 3px double black;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    transition: ease-in-out;
+    background-color: rgba(255, 255, 255, 0.70);
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.card:before{
+    content: "";
+    position: absolute;
+    display: block;
+    transition: 1000ms ease-in-out;
+    opacity: 0;
+
+}
+
+.card:hover:after{
+    opacity: 0.8;
+}
+
+.card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+}
+
+
+.card .info{
+    position: relative;
+    color: rgb(255, 255, 255);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.5s all;
+    margin-bottom: 15%;
+    /* left: 3%; */
+    font-weight: bold;
+    
+    /* text-shadow: 0.2px 0.2px; */
+}
+/* Makes the info of the stadium pop up when the card is hovered */
+.card:hover .info{
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.card .info h1{
+    margin: 0;
+    overflow-wrap: break-word;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.card .info p{
+    letter-spacing: 1px;
+    font-size: 15px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.card .info .btn {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background: rgba(0, 0, 0, 0.75);
+    color: rgb(250, 250, 250);
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+    margin-left: 25%;
+}
+
+.card .info .btn:hover{
+    transition: 0.5s;
+    box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+    background-color: rgba(182, 175, 175, 0.75);
+    color: #fff;
+    border-radius: 55px;
+}
+
+.card .info .btn:active{
+    background-color: #fff;
+    color: #000;
+    transition: 0.5s;
+}
+
+/* rotate + add summary + remove text an image. Use JS???
+transform: rotate(270deg);
+ z-index: 1;
+ height: 115%; */
+
+ .card .popuptext {
+    visibility: hidden;
+    width: 150%;;
+    background-color: rgba(250, 250, 250, 1);
+    color: rgb(0, 0, 0);
+    text-align: left;
+    border-radius: 10px;
+    padding: 8px 8px 8px 8px;
+    position: absolute;
+    left: 0;
+    margin-left: -25%;
+    /* z-index: 1; */
+    bottom: 15%;
+  }
+
+  .card .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+
+  /* =============================== */
+
+  /* Popup container - can be anything you want */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    top: 200px;
+
+    width: 10%;
+    height: 70px;
+    border-radius: 50%;
+
+  }
+
+  /* The actual popup */
+  .popup .popuptext {
+    visibility: hidden;
+    width: 300px;
+    background-color: #555;
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding: 8px 8px 8px 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+  }
+
+  /* Toggle this class - hide and show the popup */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+
+  /* ============
+    Flag
+============ */
+
+.container{
+    display: flex;
+    margin-left: 3vw;
+    margin-right: 4vw;
+    margin-top: -10vw;
+  }
+  
+  .popup img{
+    border: 4px solid white;
+  }
+  
+  /* ==============
+  Heart button
+  ============== */
+  .btn-container{
+    display: flex;
+    margin-left: 4vw;
+    margin-right: 3vw;
+    margin-top: 2vh;
+  }
+  
+  .heart-btn{
+    display: inline-block;
+    width: 15%;
+  }
+  
+  .content{
+    border: 2px solid black;
+    padding: 0px 5px 0px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+  }
+  
+  .likeBtn {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .display{
+    font-size: 25px;
+  }
+  
+  /* =================
+        Name
+  ================= */
+  .name-container{
+    display: flex;
+    margin-left: 4vw;
+    margin-right: 3vw;
+    margin-top: 34vh;
+  }
+  
+  .name{
+    display: inline-block;
+    width: 10%;
+  
+  }
+  
+  .name-content{
+    border: 2px solid white;
+    border-radius: 8px;
+    display: inline-block;
+    width: 25%;
+    text-align: center;
+    background-color: white;
+    padding: 5px 10px 5px 10px;
+  }
+  
